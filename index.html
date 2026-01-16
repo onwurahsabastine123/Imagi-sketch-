@@ -1,10 +1,10 @@
-index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>imagi-sketch | Free Drawing Video Tutorials</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 html, body {
   margin: 0;
@@ -13,6 +13,7 @@ html, body {
   scroll-behavior: smooth;
   background: #f4f4f4;
 }
+
 /* ===== HERO ===== */
 .hero {
   position: relative;
@@ -35,7 +36,7 @@ html, body {
   left: 20px;
   z-index: 2;
   color: #fff;
-  max-width: 320px;
+  max-width: 340px;
 }
 .hero-text h1 {
   font-size: 30px;
@@ -50,12 +51,14 @@ html, body {
   font-size: 14px;
   opacity: 0.9;
 }
-/* ===== DOWNLOAD SECTION ===== */
+
+/* ===== SECTIONS ===== */
 .download-section {
   background: url("bg.jpg") center / cover no-repeat fixed;
   padding: 50px 15px;
   text-align: center;
 }
+
 .download-box {
   background: rgba(255,255,255,0.88);
   padding: 22px 18px;
@@ -63,17 +66,20 @@ html, body {
   max-width: 680px;
   margin: 0 auto 25px;
 }
-.download-box h3,
-.download-box h2 {
+
+.download-box h2,
+.download-box h3 {
   margin: 0 0 10px;
   font-size: 22px;
 }
+
 .download-box p {
   font-size: 14.5px;
   line-height: 1.5;
   margin-bottom: 12px;
   color: #333;
 }
+
 .seo-image {
   width: 100%;
   max-width: 420px;
@@ -81,6 +87,7 @@ html, body {
   margin: 10px auto 14px;
   display: block;
 }
+
 /* ===== BUTTON ===== */
 .btn {
   display: inline-block;
@@ -93,6 +100,7 @@ html, body {
   font-size: 17px;
   margin-top: 6px;
 }
+
 /* ===== STICKY BAR ===== */
 .sticky-bar {
   position: fixed;
@@ -106,9 +114,12 @@ html, body {
 }
 </style>
 </head>
+
 <body>
-<!-- GOOGLE TRANSLATE (HIDDEN) -->
+
+<!-- HIDDEN GOOGLE TRANSLATE -->
 <div id="google_translate_element" style="display:none;"></div>
+
 <!-- HERO -->
 <section class="hero">
   <img src="header.gif" alt="imagi-sketch drawing tutorial">
@@ -116,9 +127,14 @@ html, body {
   <div class="hero-text">
     <h1>imagi-sketch ✏️</h1>
     <h2>Free Drawing Video Tutorials</h2>
-    <p>Draw Like a Pro<br>Instant • Beginner-Friendly • Fast Download<br>400+ Download</p>
+    <p>
+      Draw Like a Pro<br>
+      Instant • Beginner-Friendly • Fast Download<br>
+      400+ Downloads
+    </p>
   </div>
 </section>
+
 <!-- MAIN DOWNLOAD -->
 <section class="download-section" id="download">
   <div class="download-box">
@@ -133,60 +149,73 @@ html, body {
     </a>
   </div>
 </section>
-<!-- SEO BOXES -->
+
+<!-- SEO CONTENT -->
 <section class="download-section"><div class="download-box">
 <h2>Learn to Draw Anything – Step-by-Step Drawing Tutorials</h2>
 <p>Beginner-friendly video tutorials for faces, flowers, and landscapes.</p>
 <img src="preview.jpg" class="seo-image">
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
+
 <section class="download-section"><div class="download-box">
 <h2>How to Draw Flowers and Butterflies</h2>
 <p>Easy step-by-step pencil drawing techniques.</p>
 <img src="flowers.jpg" class="seo-image">
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
+
 <section class="download-section"><div class="download-box">
 <h2>How to Draw Natural Scenery</h2>
 <p>Mountains, rivers, and landscapes made simple.</p>
 <img src="landscape.jpg" class="seo-image">
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
+
 <section class="download-section"><div class="download-box">
 <h2>How to Draw an Eye</h2>
 <p>Realistic and stylized eye drawing for beginners.</p>
 <img src="eye.jpg" class="seo-image">
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
+
 <section class="download-section"><div class="download-box">
 <h2>How to Draw Faces</h2>
 <p>Realistic, anime, and basic faces made easy.</p>
 <img src="face.jpg" class="seo-image">
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
+
 <!-- STICKY CTA -->
 <div class="sticky-bar">
-  <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+  <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">
+    Download Free
+  </a>
 </div>
-<!-- AUTO TRANSLATION SCRIPT -->
+
+<!-- AUTO TRANSLATION -->
 <script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     { pageLanguage: 'en', autoDisplay: false },
     'google_translate_element'
   );
-  const lang = (navigator.language || navigator.userLanguage).split('-')[0];
-  if (lang !== 'en') {
+
+  const userLang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+
+  if (userLang !== 'en') {
     setTimeout(() => {
       const select = document.querySelector('.goog-te-combo');
       if (select) {
-        select.value = lang;
+        select.value = userLang;
         select.dispatchEvent(new Event('change'));
       }
-    }, 1200);
+    }, 1500);
   }
 }
 </script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
-</html>
+  </html>
