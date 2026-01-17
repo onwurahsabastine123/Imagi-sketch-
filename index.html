@@ -5,7 +5,7 @@
 <title>imagi-sketch | Free Drawing Video Tutorials</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- GOOGLE ANALYTICS 4 -->
+<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9D1GP2SPN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,67 +15,57 @@
 </script>
 
 <style>
-/* HIDE PAGE UNTIL TRANSLATION */
-body {
-  visibility: hidden;
+html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  scroll-behavior: smooth;
   background: #f4f4f4;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   position: relative;
   height: 60vh;
   overflow: hidden;
 }
-
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .overlay {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.55);
 }
-
 .hero-text {
   position: absolute;
   top: 25%;
   left: 20px;
-  z-index: 2;
   color: #fff;
-  max-width: 320px;
+  z-index: 2;
+  max-width: 340px;
 }
-
 .hero-text h1 {
   font-size: 30px;
-  margin: 0 0 6px;
+  margin-bottom: 6px;
 }
-
 .hero-text h2 {
   font-size: 18px;
   font-weight: normal;
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 }
-
 .hero-text p {
   font-size: 14px;
   opacity: 0.9;
 }
 
-/* ===== DOWNLOAD SECTION ===== */
+/* SECTIONS */
 .download-section {
   background: url("bg.jpg") center / cover no-repeat fixed;
   padding: 50px 15px;
   text-align: center;
 }
-
 .download-box {
   background: rgba(255,255,255,0.88);
   padding: 22px 18px;
@@ -83,18 +73,17 @@ body {
   max-width: 680px;
   margin: 0 auto 25px;
 }
-
 .download-box h2,
 .download-box h3 {
+  font-size: 22px;
   margin-bottom: 10px;
 }
-
 .download-box p {
   font-size: 14.5px;
   line-height: 1.5;
   color: #333;
+  margin-bottom: 12px;
 }
-
 .seo-image {
   width: 100%;
   max-width: 420px;
@@ -103,7 +92,7 @@ body {
   display: block;
 }
 
-/* ===== BUTTON ===== */
+/* BUTTON */
 .btn {
   display: inline-block;
   background: #00cc88;
@@ -113,42 +102,49 @@ body {
   font-weight: bold;
   text-decoration: none;
   font-size: 17px;
-  margin-top: 8px;
 }
 
-/* ===== STICKY BAR ===== */
+/* STICKY BAR */
 .sticky-bar {
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   background: rgba(0,0,0,0.9);
   padding: 12px;
   text-align: center;
   z-index: 999;
 }
+
+/* HIDE GOOGLE UI */
+.goog-te-banner-frame,
+.goog-logo-link,
+.goog-te-gadget {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
 </style>
 </head>
 
 <body>
 
-<!-- GOOGLE TRANSLATE (HIDDEN) -->
+<!-- GOOGLE TRANSLATE HOLDER (HIDDEN) -->
 <div id="google_translate_element" style="display:none;"></div>
 
 <!-- HERO -->
 <section class="hero">
   <img src="header.gif" alt="imagi-sketch drawing tutorial">
   <div class="overlay"></div>
-
   <div class="hero-text">
     <h1>imagi-sketch ✏️</h1>
     <h2>Free Drawing Video Tutorials</h2>
-    <p>Draw Like a Pro<br>Instant • Beginner-Friendly • Fast Download</p>
+    <p>Draw Like a Pro<br>Instant • Beginner-Friendly • Fast Download<br>400+ Downloads</p>
   </div>
 </section>
 
-<!-- DOWNLOAD -->
-<section class="download-section" id="download">
+<!-- MAIN DOWNLOAD -->
+<section class="download-section">
   <div class="download-box">
     <h3>What you get for free</h3>
     <p>
@@ -160,12 +156,48 @@ body {
   </div>
 </section>
 
+<!-- SEO BOXES (UNCHANGED) -->
+<section class="download-section"><div class="download-box">
+<h2>Learn to Draw Anything – Step-by-Step Drawing Tutorials</h2>
+<p>Beginner-friendly video tutorials for faces, flowers, and landscapes.</p>
+<img src="preview.jpg" class="seo-image">
+<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+</div></section>
+
+<section class="download-section"><div class="download-box">
+<h2>How to Draw Flowers and Butterflies</h2>
+<p>Easy step-by-step pencil drawing techniques.</p>
+<img src="flowers.jpg" class="seo-image">
+<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+</div></section>
+
+<section class="download-section"><div class="download-box">
+<h2>How to Draw Natural Scenery</h2>
+<p>Mountains, rivers, and landscapes made simple.</p>
+<img src="landscape.jpg" class="seo-image">
+<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+</div></section>
+
+<section class="download-section"><div class="download-box">
+<h2>How to Draw an Eye</h2>
+<p>Realistic and stylized eye drawing for beginners.</p>
+<img src="eye.jpg" class="seo-image">
+<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+</div></section>
+
+<section class="download-section"><div class="download-box">
+<h2>How to Draw Faces</h2>
+<p>Realistic, anime, and basic faces made easy.</p>
+<img src="face.jpg" class="seo-image">
+<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+</div></section>
+
 <!-- STICKY CTA -->
 <div class="sticky-bar">
   <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div>
 
-<!-- AUTO TRANSLATION SCRIPT -->
+<!-- AUTO TRANSLATION (FASTEST POSSIBLE) -->
 <script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
@@ -173,24 +205,21 @@ function googleTranslateElementInit() {
     'google_translate_element'
   );
 
-  const lang = (navigator.language || navigator.userLanguage).split('-')[0];
-
+  const lang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
   if (lang !== 'en') {
-    setTimeout(() => {
+    const attempt = setInterval(() => {
       const select = document.querySelector('.goog-te-combo');
       if (select) {
         select.value = lang;
         select.dispatchEvent(new Event('change'));
+        clearInterval(attempt);
       }
-      document.body.style.visibility = 'visible';
-    }, 1300);
-  } else {
-    document.body.style.visibility = 'visible';
+    }, 300);
   }
 }
 </script>
 
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
-  </html>
+                                    </html>
