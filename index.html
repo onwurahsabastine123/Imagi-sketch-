@@ -115,6 +115,23 @@ html, body {
   z-index: 999;
 }
 
+/* LANGUAGE DROPDOWN (UPPER-LEFT) */
+.language-dropdown {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+}
+.language-dropdown .goog-te-combo {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 14px;
+  width: 150px;
+}
+
 /* HIDE GOOGLE TRANSLATE UI */
 .goog-te-banner-frame,
 .goog-logo-link,
@@ -131,6 +148,9 @@ body {
 
 <!-- GOOGLE TRANSLATE HOLDER (HIDDEN) -->
 <div id="google_translate_element" style="display:none;"></div>
+
+<!-- LANGUAGE DROPDOWN (UPPER-LEFT) -->
+<div class="language-dropdown" id="languageDropdown"></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -162,7 +182,7 @@ body {
   </div>
 </section>
 
-<!-- SEO SECTION 1 -->
+<!-- SEO SECTIONS (UNCHANGED) -->
 <section class="download-section"><div class="download-box">
 <h2>Learn to Draw Anything – Step-by-Step Drawing Tutorials</h2>
 <p>Beginner-friendly drawing tutorials covering faces, eyes, flowers, and landscapes.</p>
@@ -170,7 +190,6 @@ body {
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
 
-<!-- SEO SECTION 2 -->
 <section class="download-section"><div class="download-box">
 <h2>How to Draw Flowers and Butterflies</h2>
 <p>Simple pencil techniques for drawing flowers and butterflies step by step.</p>
@@ -178,7 +197,6 @@ body {
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
 
-<!-- SEO SECTION 3 -->
 <section class="download-section"><div class="download-box">
 <h2>How to Draw Natural Scenery</h2>
 <p>Easy landscape drawing tutorials for mountains, rivers, and scenery.</p>
@@ -186,7 +204,6 @@ body {
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
 
-<!-- SEO SECTION 4 -->
 <section class="download-section"><div class="download-box">
 <h2>How to Draw an Eye</h2>
 <p>Learn realistic and stylized eye drawing techniques for beginners.</p>
@@ -194,7 +211,6 @@ body {
 <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
 </div></section>
 
-<!-- SEO SECTION 5 -->
 <section class="download-section"><div class="download-box">
 <h2>How to Draw Faces</h2>
 <p>Face drawing tutorials covering realistic, anime, and basic face proportions.</p>
@@ -209,14 +225,20 @@ body {
   </a>
 </div>
 
-<!-- AUTO TRANSLATION (EARLIEST POSSIBLE) -->
+<!-- AUTO TRANSLATION + AUTO DROPDOWN -->
 <script>
 function googleTranslateElementInit() {
+  // Initialize Google Translate in the dropdown
   new google.translate.TranslateElement(
-    { pageLanguage: 'en', autoDisplay: false },
-    'google_translate_element'
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,es,fr,pt,de,it,ru,zh,ja,ar',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'languageDropdown'
   );
 
+  // Auto-translate if user's language is not English
   const lang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
   if (lang !== 'en') {
     const tryTranslate = setInterval(() => {
@@ -224,10 +246,32 @@ function googleTranslateElementInit() {
       if (select) {
         select.value = lang;
         select.dispatchEvent(new Event('change'));
+        // Show the dropdown automatically
+        document.getElementById('languageDropdown').style.display = 'block';
         clearInterval(tryTranslate);
       }
     }, 250);
+  } else {
+    // If user's language is English, show the dropdown anyway (optional)
+    // Remove this if you only want the dropdown for non-English users
+    document.getElementById('languageDropdown').style.display = 'block';
   }
+
+  // Fallback: If Google Translate fails to load, show the dropdown after 2 seconds
+  setTimeout(() => {
+    if (!document.querySelector('.goog-te-combo')) {
+      document.getElementById('languageDropdown').style.display = 'block';
+      // Re-initialize Google Translate in case of failure
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,fr,pt,de,it,ru,zh,ja,ar',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        'languageDropdown'
+      );
+    }
+  }, 2000);
 }
 </script>
 
