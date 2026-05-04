@@ -1,4 +1,5 @@
-  ‎<!DOCTYPE html>
+  ‎
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -22,11 +23,32 @@ html, body {
   background: #f4f4f4;
 }
 
+/* NAVIGATION BAR */
+nav {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 12px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 /* HERO */
 .hero {
   position: relative;
   height: 60vh;
   overflow: hidden;
+  margin-top: 60px; /* Adjusted for nav bar */
 }
 .hero img {
   width: 100%;
@@ -152,6 +174,12 @@ body {
 <!-- LANGUAGE DROPDOWN (UPPER-LEFT) -->
 <div class="language-dropdown" id="languageDropdown"></div>
 
+<!-- NAVIGATION BAR -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
   <img src="header.gif" alt="imagi-sketch drawing tutorial">
@@ -182,7 +210,7 @@ body {
   </div>
 </section>
 
-<!-- SEO SECTIONS (UNCHANGED) -->
+<!-- SEO SECTIONS -->
 <section class="download-section"><div class="download-box">
 <h2>Learn to Draw Anything – Step-by-Step Drawing Tutorials</h2>
 <p>Beginner-friendly drawing tutorials covering faces, eyes, flowers, and landscapes.</p>
@@ -253,7 +281,6 @@ function googleTranslateElementInit() {
     }, 250);
   } else {
     // If user's language is English, show the dropdown anyway (optional)
-    // Remove this if you only want the dropdown for non-English users
     document.getElementById('languageDropdown').style.display = 'block';
   }
 
