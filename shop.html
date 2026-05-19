@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>imagi-sketch Shop</title>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,7 +12,6 @@
       margin: 0;
       padding: 20px;
     }
-
     /* Carousel Styles */
     .carousel {
       position: relative;
@@ -23,24 +21,20 @@
       border-radius: 10px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     }
-
     .carousel-inner {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
-
     .carousel-item {
       min-width: 100%;
       position: relative;
     }
-
     .carousel-item img {
       width: 100%;
       height: 400px; /* Adjust height as needed */
       object-fit: cover;
       display: block;
     }
-
     .carousel-caption {
       position: absolute;
       bottom: 0;
@@ -52,7 +46,6 @@
       text-align: center;
       font-size: 14px;
     }
-
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -71,15 +64,12 @@
       align-items: center;
       justify-content: center;
     }
-
     .carousel-btn.prev {
       left: 10px;
     }
-
     .carousel-btn.next {
       right: 10px;
     }
-
     .carousel-indicators {
       position: absolute;
       bottom: 15px;
@@ -89,7 +79,6 @@
       gap: 8px;
       z-index: 10;
     }
-
     .carousel-indicators span {
       width: 12px;
       height: 12px;
@@ -97,11 +86,9 @@
       background: rgba(255, 255, 255, 0.5);
       cursor: pointer;
     }
-
     .carousel-indicators span.active {
       background: white;
     }
-
     /* Product Box Styles */
     .product-box {
       background: #fff;
@@ -111,20 +98,16 @@
       margin: 40px auto;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
-
     .product-box img {
       width: 100%;
       border-radius: 10px;
     }
-
     h1 {
       margin: 10px 0;
     }
-
     p {
       color: #555;
     }
-
     .buy-btn {
       display: inline-block;
       margin-top: 15px;
@@ -137,9 +120,34 @@
     }
   </style>
 </head>
-
 <body>
-
+  <!-- NAVIGATION BAR -->
+<nav style="
+  background: rgba(0,0,0,0.85);
+  padding: 14px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+">
+  <a href="index.html" style="
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+  ">Free Tutorials</a>
+  <span style="
+    color: white;
+    margin: 0 12px;
+  ">
+    |
+  </span>
+  <a href="shop.html" style="
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  ">Sketchbooks</a>
+</nav>
   <!-- Carousel for Sketchbook Images -->
   <div class="carousel">
     <div class="carousel-inner" id="carouselInner">
@@ -169,15 +177,13 @@
       <span data-index="2"></span>
     </div>
   </div>
-
   <!-- Product Box -->
   <div class="product-box">
     <img src="images/sketchbook.jpg" alt="Sketchbook">
     <h1>imagi-sketch Sketchbook</h1>
     <p>Premium beginner sketchbook designed to improve your drawing skills.</p>
-    <a href="#" class="buy-btn">Buy Now</a>
+    <a href="https://flutterwave.com/pay/683drdfwgjxi" class="buy-btn">Get it</a>
   </div>
-
   <!-- Carousel JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -188,7 +194,6 @@
       const carouselItems = document.querySelectorAll('.carousel-item');
       let currentIndex = 0;
       const totalItems = carouselItems.length;
-
       // Update carousel position
       function updateCarousel() {
         carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -197,19 +202,16 @@
           indicator.classList.toggle('active', index === currentIndex);
         });
       }
-
       // Next button click
       nextBtn.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % totalItems;
         updateCarousel();
       });
-
       // Previous button click
       prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + totalItems) % totalItems;
         updateCarousel();
       });
-
       // Indicator click
       indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
@@ -217,7 +219,6 @@
           updateCarousel();
         });
       });
-
       // Auto-slide (optional)
       setInterval(() => {
         currentIndex = (currentIndex + 1) % totalItems;
@@ -225,6 +226,6 @@
       }, 5000); // Change slide every 5 seconds
     });
   </script>
-
 </body>
-      </html>
+</html>
+     
