@@ -15,204 +15,253 @@
 </script>
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-}
+  /* RESET AND BASE STYLES */
+  * {
+    box-sizing: border-box;
+  }
 
-/* NAVIGATION BAR */
-nav {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 12px;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-}
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+  }
 
-/* HERO */
-.hero {
-  position: relative;
-  height: 60vh;
-  overflow: hidden;
-  margin-top: 60px; /* Adjusted for nav bar */
-}
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-.hero-text {
-  position: absolute;
-  top: 25%;
-  left: 20px;
-  color: #fff;
-  z-index: 2;
-  max-width: 340px;
-}
-.hero-text h1 {
-  font-size: 30px;
-  margin-bottom: 6px;
-}
-.hero-text h2 {
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-.hero-text p {
-  font-size: 14px;
-  opacity: 0.9;
-}
+  /* NAVIGATION BAR */
+  nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 12px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
 
-/* SECTIONS */
-.download-section {
-  background: url("bg.jpg") center / cover no-repeat fixed;
-  padding: 50px 15px;
-  text-align: center;
-}
-.download-box {
-  background: rgba(255,255,255,0.88);
-  padding: 22px 18px;
-  border-radius: 14px;
-  max-width: 680px;
-  margin: 0 auto 25px;
-}
-.download-box h2,
-.download-box h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-.download-box p {
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: #333;
-  margin-bottom: 12px;
-}
-.seo-image {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 10px;
-  margin: 10px auto 14px;
-  display: block;
-}
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  background: #00cc88;
-  color: #000;
-  padding: 14px 32px;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 17px;
-}
+  .nav-divider {
+    color: white;
+  }
 
-/* STICKY BAR */
-.sticky-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.9);
-  padding: 12px;
-  text-align: center;
-  z-index: 999;
-}
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    margin-top: 60px; /* Adjusted for nav bar */
+  }
 
-/* LANGUAGE DROPDOWN (UPPER-LEFT) */
-.language-dropdown {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  display: none; /* Hidden by default */
-}
-.language-dropdown .goog-te-combo {
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: white;
-  font-size: 14px;
-  width: 150px;
-}
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-/* HIDE GOOGLE TRANSLATE UI */
-.goog-te-banner-frame,
-.goog-logo-link,
-.goog-te-gadget {
-  display: none !important;
-}
-body {
-  top: 0 !important;
-}
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+  }
 
-/* ===== POPUP STYLES ===== */
-#popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: none; /* Hidden by default */
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-#popup-box {
-  background: #fff;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 14px;
-  padding: 18px;
-  text-align: center;
-  position: relative;
-  animation: popupShow 0.3s ease;
-}
-#popup-box img {
-  width: 100%;
-  border-radius: 10px;
-}
-#close-popup {
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 32px;
-  cursor: pointer;
-  font-weight: bold;
-}
-#popup-btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 14px 28px;
-  background: #00cc88; /* Matches website CTA */
-  color: #000;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 16px;
-}
-@keyframes popupShow {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
+  .hero-text {
+    position: absolute;
+    top: 25%;
+    left: 20px;
+    color: #fff;
+    z-index: 2;
+    max-width: 340px;
+  }
+
+  .hero-text h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+  }
+
+  .hero-text h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+  /* SECTIONS */
+  .download-section {
+    background: url("bg.jpg") center / cover no-repeat fixed;
+    padding: 50px 15px;
+    text-align: center;
+  }
+
+  .download-box {
+    background: rgba(255, 255, 255, 0.88);
+    padding: 22px 18px;
+    border-radius: 14px;
+    max-width: 680px;
+    margin: 0 auto 25px;
+  }
+
+  .download-box h2,
+  .download-box h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .download-box p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 12px;
+  }
+
+  .seo-image {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    margin: 10px auto 14px;
+    display: block;
+  }
+
+  /* BUTTON */
+  .btn {
+    display: inline-block;
+    background: #00cc88;
+    color: #000;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  /* STICKY BAR */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 12px;
+    text-align: center;
+    z-index: 999;
+  }
+
+  /* LANGUAGE DROPDOWN (UPPER-LEFT) */
+  .language-dropdown {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+  }
+
+  .language-dropdown .goog-te-combo {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    width: 150px;
+  }
+
+  /* HIDE GOOGLE TRANSLATE UI */
+  .goog-te-banner-frame,
+  .goog-logo-link,
+  .goog-te-gadget {
+    display: none !important;
+  }
+
+  body {
+    top: 0 !important;
+  }
+
+  /* ===== POPUP STYLES ===== */
+  #popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  #popup-box {
+    background: #fff;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    position: relative;
+    animation: popupShow 0.3s ease;
+    box-sizing: border-box; /* Prevents padding from expanding the box */
+  }
+
+  #popup-box img {
+    width: 100%;
+    max-width: 300px; /* Limits image width */
+    border-radius: 10px;
+    margin: 0 auto 14px;
+    display: block;
+  }
+
+  #close-popup {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 32px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+  }
+
+  #popup-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 14px 28px;
+    background: #00cc88;
+    color: #000;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  @keyframes popupShow {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Mobile responsiveness for popup */
+  @media (max-width: 480px) {
+    #popup-box {
+      width: 95%;
+      padding: 14px;
+    }
+    #popup-box img {
+      max-width: 250px;
+    }
+  }
 </style>
 </head>
 
@@ -224,11 +273,10 @@ body {
 <!-- LANGUAGE DROPDOWN (UPPER-LEFT) -->
 <div class="language-dropdown" id="languageDropdown"></div>
 
-<!-- NAVIGATION BAR --><nav>
+<!-- NAVIGATION BAR -->
+<nav>
   <a href="index.html">Free Tutorials</a>
-
-  <span style="color:white;">|</span>
-
+  <span class="nav-divider">|</span>
   <a href="shop.html">Sketchbooks</a>
 </nav>
 
@@ -263,40 +311,50 @@ body {
 </section>
 
 <!-- SEO SECTIONS -->
-<section class="download-section"><div class="download-box">
-<h2>Learn to Draw Anything – Step-by-Step Drawing Tutorials</h2>
-<p>Beginner-friendly drawing tutorials covering faces, eyes, flowers, and landscapes.</p>
-<img src="preview.jpg" class="seo-image" alt="step by step drawing tutorials for beginners">
-<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
-</div></section>
+<section class="download-section">
+  <div class="download-box">
+    <h2>Learn to Draw Anything – Step-by-Step Drawing Tutorials</h2>
+    <p>Beginner-friendly drawing tutorials covering faces, eyes, flowers, and landscapes.</p>
+    <img src="preview.jpg" class="seo-image" alt="step by step drawing tutorials for beginners">
+    <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+  </div>
+</section>
 
-<section class="download-section"><div class="download-box">
-<h2>How to Draw Flowers and Butterflies</h2>
-<p>Simple pencil techniques for drawing flowers and butterflies step by step.</p>
-<img src="flowers.jpg" class="seo-image" alt="flower drawing tutorial for beginners">
-<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
-</div></section>
+<section class="download-section">
+  <div class="download-box">
+    <h2>How to Draw Flowers and Butterflies</h2>
+    <p>Simple pencil techniques for drawing flowers and butterflies step by step.</p>
+    <img src="flowers.jpg" class="seo-image" alt="flower drawing tutorial for beginners">
+    <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+  </div>
+</section>
 
-<section class="download-section"><div class="download-box">
-<h2>How to Draw Natural Scenery</h2>
-<p>Easy landscape drawing tutorials for mountains, rivers, and scenery.</p>
-<img src="landscape.jpg" class="seo-image" alt="landscape drawing tutorial for beginners">
-<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
-</div></section>
+<section class="download-section">
+  <div class="download-box">
+    <h2>How to Draw Natural Scenery</h2>
+    <p>Easy landscape drawing tutorials for mountains, rivers, and scenery.</p>
+    <img src="landscape.jpg" class="seo-image" alt="landscape drawing tutorial for beginners">
+    <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+  </div>
+</section>
 
-<section class="download-section"><div class="download-box">
-<h2>How to Draw an Eye</h2>
-<p>Learn realistic and stylized eye drawing techniques for beginners.</p>
-<img src="eye.jpg" class="seo-image" alt="eye drawing tutorial step by step">
-<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
-</div></section>
+<section class="download-section">
+  <div class="download-box">
+    <h2>How to Draw an Eye</h2>
+    <p>Learn realistic and stylized eye drawing techniques for beginners.</p>
+    <img src="eye.jpg" class="seo-image" alt="eye drawing tutorial step by step">
+    <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+  </div>
+</section>
 
-<section class="download-section"><div class="download-box">
-<h2>How to Draw Faces</h2>
-<p>Face drawing tutorials covering realistic, anime, and basic face proportions.</p>
-<img src="face.jpg" class="seo-image" alt="face drawing tutorial for beginners">
-<a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
-</div></section>
+<section class="download-section">
+  <div class="download-box">
+    <h2>How to Draw Faces</h2>
+    <p>Face drawing tutorials covering realistic, anime, and basic face proportions.</p>
+    <img src="face.jpg" class="seo-image" alt="face drawing tutorial for beginners">
+    <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
+  </div>
+</section>
 
 <!-- STICKY CTA -->
 <div class="sticky-bar">
@@ -312,7 +370,7 @@ body {
     <span id="close-popup">&times;</span>
 
     <!-- PRODUCT IMAGE -->
-    <img src="images/sketchbook-popup.png" alt="imagi-sketch Sketchbook">
+    <img src="https://YOUR_DOMAIN.com/images/sketchbook-popup.png" alt="imagi-sketch Sketchbook">
 
     <!-- TEXT -->
     <h2>imagi-sketch Sketchbook</h2>
@@ -326,39 +384,11 @@ body {
   </div>
 </div>
 
-<!-- AUTO TRANSLATION + AUTO DROPDOWN -->
 <script>
-function googleTranslateElementInit() {
-  // Initialize Google Translate in the dropdown
-  new google.translate.TranslateElement(
-    {
-      pageLanguage: 'en',
-      includedLanguages: 'en,es,fr,pt,de,it,ru,zh,ja,ar',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    },
-    'languageDropdown'
-  );
-
-  // Auto-translate if user's language is not English
-  const lang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
-  if (lang !== 'en') {
-    const tryTranslate = setInterval(() => {
-      const select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-        document.getElementById('languageDropdown').style.display = 'block';
-        clearInterval(tryTranslate);
-      }
-    }, 250);
-  } else {
-    document.getElementById('languageDropdown').style.display = 'block';
-  }
-
-  // Fallback: If Google Translate fails to load, show the dropdown after 2 seconds
-  setTimeout(() => {
-    if (!document.querySelector('.goog-te-combo')) {
-      document.getElementById('languageDropdown').style.display = 'block';
+  // Wait for the DOM to fully load
+  document.addEventListener('DOMContentLoaded', function() {
+    // --- GOOGLE TRANSLATE ---
+    function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         {
           pageLanguage: 'en',
@@ -367,38 +397,72 @@ function googleTranslateElementInit() {
         },
         'languageDropdown'
       );
+
+      // Auto-translate if user's language is not English
+      const lang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+      if (lang !== 'en') {
+        const tryTranslate = setInterval(() => {
+          const select = document.querySelector('.goog-te-combo');
+          if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+            document.getElementById('languageDropdown').style.display = 'block';
+            clearInterval(tryTranslate);
+          }
+        }, 250);
+      } else {
+        document.getElementById('languageDropdown').style.display = 'block';
+      }
+
+      // Fallback: Show dropdown after 2 seconds if Google Translate fails
+      setTimeout(() => {
+        if (!document.querySelector('.goog-te-combo')) {
+          document.getElementById('languageDropdown').style.display = 'block';
+          new google.translate.TranslateElement(
+            {
+              pageLanguage: 'en',
+              includedLanguages: 'en,es,fr,pt,de,it,ru,zh,ja,ar',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'languageDropdown'
+          );
+        }
+      }, 2000);
     }
-  }, 2000);
-}
 
-// --- POPUP TRIGGERS ---
-// Show popup after 2seconds
-setTimeout(() => {
-  document.getElementById("popup-overlay").style.display = "flex";
-}, 2000);
+    // Load Google Translate script
+    const script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.head.appendChild(script);
 
-// Exit-intent trigger
-document.addEventListener('mouseout', (e) => {
-  if (e.clientY < 0) {
-    document.getElementById("popup-overlay").style.display = "flex";
-  }
-});
+    // --- POPUP TRIGGERS ---
+    // Show popup after 3 seconds (increased from 2s for better UX)
+    setTimeout(() => {
+      document.getElementById("popup-overlay").style.display = "flex";
+    }, 3000);
 
-// --- CLOSE FUNCTIONS ---
-// Close on X click
-document.getElementById("close-popup").onclick = function() {
-  document.getElementById("popup-overlay").style.display = "none";
-};
+    // Exit-intent trigger
+    document.addEventListener('mouseout', (e) => {
+      if (e.clientY < 0) {
+        document.getElementById("popup-overlay").style.display = "flex";
+      }
+    });
 
-// Close on outside click
-document.getElementById("popup-overlay").onclick = function(e) {
-  if (e.target === this) {
-    this.style.display = "none";
-  }
-};
+    // --- CLOSE FUNCTIONS ---
+    // Close on X click
+    document.getElementById("close-popup").onclick = function() {
+      document.getElementById("popup-overlay").style.display = "none";
+    };
+
+    // Close on outside click
+    document.getElementById("popup-overlay").onclick = function(e) {
+      if (e.target === this) {
+        this.style.display = "none";
+      }
+    };
+  });
 </script>
-
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
