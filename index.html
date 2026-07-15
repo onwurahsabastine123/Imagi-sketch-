@@ -185,70 +185,72 @@
     top: 0 !important;
   }
 
-/* ===== POPUP STYLES ===== */
-#popup-overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-#popup-box{
-  background:#fff;
-  width:90%;
-  max-width:340px;
-  border-radius:14px;
-  padding:18px;
-  text-align:center;
-  position:relative;
-  animation:popupShow 0.3s ease;
-}
-
-#popup-box img{
-  width:70%;
-  max-width:280px;
-  height:auto;
-  border-radius:10px;
-  display:block;
-  margin:0 auto 12px;
-}
-
-#close-popup{
-  position:absolute;
-  top:10px;
-  right:14px;
-  font-size:28px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-#popup-btn{
-  display:inline-block;
-  margin-top:14px;
-  padding:12px 22px;
-  background:#00cc88;
-  color:#000;
-  text-decoration:none;
-  border-radius:25px;
-  font-weight:bold;
-}
-
-@keyframes popupShow{
-  from{
-    opacity:0;
-    transform:scale(0.9);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
+  /* POPUP STYLES - FIXED TO PREVENT LAYOUT SHIFT */
+  #popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
+  #popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #popup-box {
+    background: #fff;
+    width: 90%;
+    max-width: 340px;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+
+  #popup-overlay.active #popup-box {
+    transform: scale(1);
+  }
+
+  #popup-box img {
+    width: 70%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 12px;
+  }
+
+  #close-popup {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #popup-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 12px 22px;
+    background: #00cc88;
+    color: #000;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+  }
 
   /* Mobile responsiveness for popup */
   @media (max-width: 480px) {
@@ -259,6 +261,13 @@
     #popup-box img {
       max-width: 250px;
     }
+  }
+
+  /* Elfsight Widget Container */
+  .elfsight-container {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
   }
 </style>
 </head>
@@ -306,6 +315,12 @@
       Download Free
     </a>
   </div>
+
+  <!-- ELFSIGHT WIDGET - PROPERLY PLACED -->
+  <div class="elfsight-container">
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-342c5856-5c4b-4f8e-9d61-a70557e4deaa" data-elfsight-app-lazy></div>
+  </div>
 </section>
 
 <!-- SEO SECTIONS -->
@@ -317,13 +332,7 @@
     <a href="https://fanciful-genie-8f9e4c.netlify.app/" class="btn" target="_blank">Download Free</a>
   </div>
 </section>
-</br>
-    <!-- Elfsight Subscription Form | Email sign up for free drawing tutorials  -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-342c5856-5c4b-4f8e-9d61-a70557e4deaa" data-elfsight-app-lazy></div>
-</section>
 
-<!--SEO SECTIONS -->
 <section class="download-section">
   <div class="download-box">
     <h2>How to Draw Flowers and Butterflies</h2>
@@ -333,7 +342,6 @@
   </div>
 </section>
 
-<!--SEO SECTIONS -->
 <section class="download-section">
   <div class="download-box">
     <h2>How to Draw Natural Scenery</h2>
@@ -343,7 +351,6 @@
   </div>
 </section>
 
-<!--SEO SECTIONS -->
 <section class="download-section">
   <div class="download-box">
     <h2>How to Draw an Eye</h2>
@@ -353,7 +360,6 @@
   </div>
 </section>
 
-<!--SEO SECTIONS -->
 <section class="download-section">
   <div class="download-box">
     <h2>How to Draw Faces</h2>
@@ -370,21 +376,14 @@
   </a>
 </div>
 
-<!-- ===== POPUP OVERLAY ===== -->
+<!-- POPUP OVERLAY - FIXED VERSION -->
 <div id="popup-overlay">
   <div id="popup-box">
-    <!-- CLOSE BUTTON -->
     <span id="close-popup">&times;</span>
-
-    <!-- PRODUCT IMAGE -->
-<img src="sketchbook.jpg" alt="imagi-sketch Sketchbook">
-
-    <!-- TEXT -->
+    <img src="sketchbook.jpg" alt="imagi-sketch Sketchbook">
     <h2>imagi-sketch Sketchbook</h2>
     <p>Draw like a pro with our premium beginner sketchbook.</p>
     <p style="color: #ff4444; font-weight: bold; margin: 5px 0;">✅ 400+ artists already using it!</p>
-
-    <!-- BUTTON -->
     <a href="https://imagi-sketch.netlify.app/shop.html" id="popup-btn">
       Get Yours Now→
     </a>
@@ -405,7 +404,6 @@
         'languageDropdown'
       );
 
-      // Auto-translate if user's language is not English
       const lang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
       if (lang !== 'en') {
         const tryTranslate = setInterval(() => {
@@ -421,7 +419,6 @@
         document.getElementById('languageDropdown').style.display = 'block';
       }
 
-      // Fallback: Show dropdown after 2 seconds if Google Translate fails
       setTimeout(() => {
         if (!document.querySelector('.goog-te-combo')) {
           document.getElementById('languageDropdown').style.display = 'block';
@@ -443,33 +440,34 @@
     script.async = true;
     document.head.appendChild(script);
 
-    // --- POPUP TRIGGERS ---
-    // Show popup after 3 seconds (increased from 2s for better UX)
+    // --- POPUP TRIGGERS - FIXED VERSION ---
+    // Show popup after 3 seconds
     setTimeout(() => {
-      document.getElementById("popup-overlay").style.display = "flex";
+      document.getElementById("popup-overlay").classList.add("active");
     }, 3000);
 
     // Exit-intent trigger
     document.addEventListener('mouseout', (e) => {
       if (e.clientY < 0) {
-        document.getElementById("popup-overlay").style.display = "flex";
+        document.getElementById("popup-overlay").classList.add("active");
       }
     });
 
-    // --- CLOSE FUNCTIONS ---
     // Close on X click
     document.getElementById("close-popup").onclick = function() {
-      document.getElementById("popup-overlay").style.display = "none";
+      document.getElementById("popup-overlay").classList.remove("active");
     };
 
     // Close on outside click
     document.getElementById("popup-overlay").onclick = function(e) {
       if (e.target === this) {
-        this.style.display = "none";
+        this.classList.remove("active");
       }
     };
   });
 </script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
